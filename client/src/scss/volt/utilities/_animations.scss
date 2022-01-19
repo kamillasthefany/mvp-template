@@ -1,8 +1,4 @@
 
-/**
- * = Animations
- */
-
 @for $size from 1 to 10 {
     .animate-up-#{$size},
     .animate-right-#{$size},

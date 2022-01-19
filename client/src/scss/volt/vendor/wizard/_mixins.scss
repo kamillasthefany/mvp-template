@@ -1,6 +1,3 @@
-/*
- * Breakpoint mixins to ease development conditions
- */
 @mixin breakpoint( $point ) {
     @if $point == 'md' {
         @media screen and (max-width: $md-breakpoint) { @content; }

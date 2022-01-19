@@ -1,7 +1,3 @@
-/**
- * = Accordions
- */
-
  .accordion-button {
     text-align: left;
 
@@ -14,10 +10,6 @@
         background-color: $gray-200;
     }
 }
-
-// Flush accordion items
-//
-// Remove borders and border-radius to keep accordion items edge-to-edge.
 
 .accordion-flush {
     .accordion-button {

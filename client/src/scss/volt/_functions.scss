@@ -1,4 +1,3 @@
-// Retrieve color Sass maps
 
 @function section-color($key: "primary") {
 	@return map-get($section-colors, $key);
