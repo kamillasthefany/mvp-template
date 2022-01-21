@@ -66,14 +66,15 @@ export function Application() {
   return (
     <Router>
       <Switch>
-        <RouteWithLoader exact path={Routes.Login.path} component={Signin} />
-        <RouteWithLoader exact path={Routes.NotFound.path} component={NotFound} />
+
         {auth && auth.token &&
           <RouteWithSidebar exact path={Routes.Clientes.path} component={Clientes} />
         }
         {auth && auth.token &&
           <RouteWithLoader exact path={Routes.Login.path} component={Login} />
         }
+        <RouteWithLoader exact path={Routes.Login.path} component={Signin} />
+        <RouteWithLoader exact path={Routes.NotFound.path} component={NotFound} />
 
         {/* <RouteWithSidebar exact path={Routes.ListarClientes.path} component={ListarClientes} /> */}
 

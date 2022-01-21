@@ -14,6 +14,7 @@ const Autenticacao = {
     try {
       const { email, senha } = request.body;
       const usuario = await Usuario.findOne({ where: { email } });
+
       if (!usuario)
         return response.status(400).send({ erro: 'Usuário não encontrado' });
 

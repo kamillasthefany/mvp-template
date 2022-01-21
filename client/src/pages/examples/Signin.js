@@ -1,16 +1,60 @@
 
-import React from "react";
+import React, { useState, useContext } from "react";
+import { Link, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faEnvelope, faUnlockAlt } from "@fortawesome/free-solid-svg-icons";
-import { faFacebookF, faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { Col, Row, Form, Card, Button, FormCheck, Container, InputGroup } from '@themesberg/react-bootstrap';
-import { Link } from 'react-router-dom';
 
 import { Routes } from "../../routes";
 import BgImage from "../../assets/img/illustrations/signin.svg";
+import { authenticate } from '../../services/auth';
+import { AuthContext } from "../../contexts/authContext";
 
 
 export default () => {
+
+  const history = useHistory();
+  const [user, setUser] = useContext(AuthContext);
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+  const handleSenha = (evt) => {
+    setSenha(evt.target.value);
+  }
+
+  const handleEmail = (evt) => {
+    setEmail(evt.target.value);
+  }
+
+  // const redirectUserLogged = () => {
+  //   window.location.href = '/home';
+  // };
+
+  const redirectUserLogged = () => {
+    history.push('/home');
+  };
+
+  async function efetuarLogin(evt) {
+    evt.preventDefault();
+
+    const usuario = { email, senha };
+
+    const result = await authenticate(usuario);
+    if (result.status === 200) {
+      const auth = {
+        user: result.data.usuario,
+        token: result.data.token,
+      };
+      if (user) {
+        setUser(prevState => ({ ...prevState, auth }));
+        redirectUserLogged();
+      }
+    } else {
+      //incluir loading
+      console.log('Email ou senha invalidos');
+    }
+  }
+
   return (
     <main>
       <section className="d-flex align-items-center my-5 mt-lg-6 mb-lg-5">
@@ -33,7 +77,7 @@ export default () => {
                       <InputGroup.Text>
                         <FontAwesomeIcon icon={faEnvelope} />
                       </InputGroup.Text>
-                      <Form.Control autoFocus required type="email" placeholder="example@company.com" />
+                      <Form.Control autoFocus required type="email" placeholder="example@company.com" onChange={handleEmail} />
                     </InputGroup>
                   </Form.Group>
                   <Form.Group>
@@ -43,7 +87,7 @@ export default () => {
                         <InputGroup.Text>
                           <FontAwesomeIcon icon={faUnlockAlt} />
                         </InputGroup.Text>
-                        <Form.Control required type="password" placeholder="Password" />
+                        <Form.Control required type="password" placeholder="Password" onChange={handleSenha} />
                       </InputGroup>
                     </Form.Group>
                     <div className="d-flex justify-content-between align-items-center mb-4">
@@ -54,25 +98,10 @@ export default () => {
                       <Card.Link className="small text-end">Esqueceu a senha?</Card.Link>
                     </div>
                   </Form.Group>
-                  <Button variant="primary" type="submit" className="w-100">
+                  <Button variant="primary" type="submit" className="w-100" onClick={efetuarLogin}>
                     Entrar
                   </Button>
                 </Form>
-
-                {/* <div className="mt-3 mb-4 text-center">
-                  <span className="fw-normal">or login with</span>
-                </div>
-                <div className="d-flex justify-content-center my-4">
-                  <Button variant="outline-light" className="btn-icon-only btn-pill text-facebook me-2">
-                    <FontAwesomeIcon icon={faFacebookF} />
-                  </Button>
-                  <Button variant="outline-light" className="btn-icon-only btn-pill text-twitter me-2">
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </Button>
-                  <Button variant="outline-light" className="btn-icon-only btn-pil text-dark">
-                    <FontAwesomeIcon icon={faGithub} />
-                  </Button>
-                </div> */}
                 <div className="d-flex justify-content-center align-items-center mt-4">
                   <span className="fw-normal">
                     Ainda não é cadastrado?
