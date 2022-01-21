@@ -13,7 +13,7 @@ import Sidebar from "./../components/Sidebar";
 import Navbar from "./../components/Navbar";
 import Preloader from "./../components/Preloader";
 import NotFound from "./../pages/examples/NotFound";
-import Signin from "./../pages/examples/Signin";
+import Login from "./../pages/examples/Signin";
 
 
 import { withAuthorizationRouter } from './auth';
@@ -68,8 +68,11 @@ export function Application() {
       <Switch>
         <RouteWithLoader exact path={Routes.Login.path} component={Signin} />
         <RouteWithLoader exact path={Routes.NotFound.path} component={NotFound} />
-        {auth && auth.token && 
+        {auth && auth.token &&
           <RouteWithSidebar exact path={Routes.Clientes.path} component={Clientes} />
+        }
+        {auth && auth.token &&
+          <RouteWithLoader exact path={Routes.Login.path} component={Login} />
         }
 
         {/* <RouteWithSidebar exact path={Routes.ListarClientes.path} component={ListarClientes} /> */}
