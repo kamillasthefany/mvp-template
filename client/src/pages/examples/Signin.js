@@ -26,12 +26,8 @@ export default () => {
     setEmail(evt.target.value);
   }
 
-  // const redirectUserLogged = () => {
-  //   window.location.href = '/home';
-  // };
-
   const redirectUserLogged = () => {
-    history.push('/home');
+    history.push('/dashboard');
   };
 
   async function efetuarLogin(evt) {

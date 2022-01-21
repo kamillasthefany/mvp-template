@@ -1,15 +1,20 @@
 
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faCog, faEnvelopeOpen, faSearch, faSignOutAlt, faUserShield } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { Row, Col, Nav, Form, Image, Navbar, Dropdown, Container, ListGroup, InputGroup } from '@themesberg/react-bootstrap';
+import { UseAuthProvider } from './../contexts/authContext';
+import { logout } from './../services/auth';
 
 import NOTIFICATIONS_DATA from "../data/notifications";
 import Profile3 from "../assets/img/team/profile-picture-3.jpg";
 
 
 export default (props) => {
+  const [{ auth }] = UseAuthProvider();
+  const history = useHistory();
   const [notifications, setNotifications] = useState(NOTIFICATIONS_DATA);
   const areNotificationsRead = notifications.reduce((acc, notif) => acc && notif.read, true);
 
@@ -19,6 +24,18 @@ export default (props) => {
     }, 300);
   };
 
+  const sair = async () => {
+    const resultado = await logout(auth.token);
+    if (resultado.status === 200) {
+      localStorage.clear();
+      sessionStorage.clear();
+      history.push('/');
+      window.location.reload();
+    }
+    else {
+      console.log('erro ao deslogar');
+    }
+  }
 
   const Notification = (props) => {
     const { link, sender, image, time, message, read = false } = props;
@@ -108,7 +125,7 @@ export default (props) => {
 
                 <Dropdown.Divider />
 
-                <Dropdown.Item className="fw-bold">
+                <Dropdown.Item className="fw-bold" onClick={() => sair()}>
                   <FontAwesomeIcon icon={faSignOutAlt} className="text-danger me-2" /> Logout
                 </Dropdown.Item>
               </Dropdown.Menu>
