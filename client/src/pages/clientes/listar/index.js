@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCog, faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Form, Button, ButtonGroup, Breadcrumb, InputGroup, Dropdown } from '@themesberg/react-bootstrap';
 
 //import { TransactionsTable } from "../components/Tables";
 //import { TransactionsTable } from "../../components/Tables";
-import { TransactionsTable } from "../../../components/Tables";
+//import { TransactionsTable } from "../../../components/Tables";
+import { Tabela } from '../../../components/Table';
 
 export default () => {
+
+
+
   return (
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
@@ -23,7 +27,7 @@ export default () => {
         <div className="btn-toolbar mb-2 mb-md-0">
           <ButtonGroup>
             <Button variant="outline-primary" size="sm">Share</Button>
-            <Button variant="outline-primary" size="sm">Export</Button>
+            <Button variant="outline-primary" size="sm">Exportar</Button>
           </ButtonGroup>
         </div>
       </div>
@@ -46,7 +50,7 @@ export default () => {
                 </span>
               </Dropdown.Toggle>
               <Dropdown.Menu className="dropdown-menu-xs dropdown-menu-right">
-                <Dropdown.Item className="fw-bold text-dark">Show</Dropdown.Item>
+                <Dropdown.Item className="fw-bold text-dark">Mostrar</Dropdown.Item>
                 <Dropdown.Item className="d-flex fw-bold">
                   10 <span className="icon icon-small ms-auto"><FontAwesomeIcon icon={faCheck} /></span>
                 </Dropdown.Item>
@@ -58,7 +62,7 @@ export default () => {
         </Row>
       </div>
 
-      <TransactionsTable />
+      <Tabela />
     </>
   );
 };

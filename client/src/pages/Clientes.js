@@ -101,12 +101,10 @@ export default () => {
                 </Row>
                 <Row>
                   <Col sm={12}>
-                    <Form>
-                      <Form.Group>
-                        <Form.Label>Observações</Form.Label>
-                        <Form.Control as="textarea" rows="4" placeholder="Enter your message..." />
-                      </Form.Group>
-                    </Form>
+                    <Form.Group>
+                      <Form.Label>Observações</Form.Label>
+                      <Form.Control as="textarea" rows="4" placeholder="Enter your message..." />
+                    </Form.Group>
                   </Col>
                 </Row>
                 <div className="mt-3">

@@ -97,7 +97,8 @@ export default (props = {}) => {
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="Volt React" link={Routes.Presentation.path} image={ReactHero} />
+              {/* <NavItem title="Volt React" link={Routes.Presentation.path} image={ReactHero} /> */}
+              <NavItem title="Volt React" link={Routes.DashboardOverview.path} image={ReactHero} />
               <CollapsableNavItem eventKey="/" title="Clientes" icon={faUser}>
                 <NavItem title="Cadastro" link={Routes.Clientes.path} />
                 <NavItem title="Listar" link={Routes.ListarClientes.path} />
