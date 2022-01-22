@@ -27,7 +27,6 @@ const CardItem = (props) => {
 }
 
 export const CardList = (props) => {
-
   //const { lista } = props;
   return (
     <Card border="light" className="shadow-sm">

@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, Card, Form, InputGroup } from '@themesberg/react-bootstrap';
 import { ChoosePhotoWidget } from "./../../components/Widgets";
-import moment from "moment-timezone";
-import Datetime from "react-datetime";
+import { CardList } from "../../components/CardList";
 
 export default () => {
 
@@ -31,7 +28,7 @@ export default () => {
                   <Col sm={12}>
                     <Form.Group>
                       <Form.Label>Observações</Form.Label>
-                      <Form.Control as="textarea" rows="4" placeholder="Enter your message..." />
+                      <Form.Control as="textarea" rows="4" placeholder="Digite uma mensagem..." />
                     </Form.Group>
                   </Col>
                 </Row>
@@ -45,13 +42,15 @@ export default () => {
 
         <Col xs={12} xl={4}>
           <Row>
-            {/* <Col xs={12}>
-              <ProfileCardWidget />
-            </Col> */}
             <Col xs={12}>
               <ChoosePhotoWidget
                 title="Enviar documentos"
               />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <CardList />
             </Col>
           </Row>
         </Col>

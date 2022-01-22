@@ -15,7 +15,7 @@ export default () => {
             <h1 className="h2">Alerts</h1>
             <p className="mb-0">
               Use alerts to provide contextual feedback to your users based on their input and behaviour.
-        </p>
+            </p>
           </Col>
         </Row>
 
