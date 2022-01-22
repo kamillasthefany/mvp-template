@@ -98,12 +98,12 @@ export default (props = {}) => {
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
               <NavItem title="Zupelli Turismo" link={Routes.DashboardOverview.path} image={Airplane} />
-              <CollapsableNavItem eventKey="/" title="Clientes" icon={faUser}>
-                <NavItem title="Novo Cliente" link="/teste" />
-                <NavItem title="Clientes" link="/" />
+              <CollapsableNavItem eventKey="/cliente" title="Clientes" icon={faUser}>
+                <NavItem title="Novo Cliente" link="/cliente/cadastrar" />
+                <NavItem title="Clientes" link="/cliente/listar" />
               </CollapsableNavItem>
               <CollapsableNavItem eventKey="/vendas" title="Vendas" icon={faDollarSign}>
-                <NavItem title="Nova Venda" link="/home" />
+                <NavItem title="Nova Venda" link="/vendas/cadastrar" />
                 <NavItem title="Vendas" link="/vendas/listar" />
               </CollapsableNavItem>
               <CollapsableNavItem eventKey="/usuarios" title="Usuários" icon={faUserCog}>

@@ -59,7 +59,7 @@ export default () => {
         </Row>
       </div>
 
-      <Tabela tableContent={data} tableTitles={"id, nome, email, aprovado, createdAt"} />
+      {/* <Tabela tableContent={data} tableTitles={"id, nome, email, aprovado, createdAt"} /> */}
     </>
   );
 };

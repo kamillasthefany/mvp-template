@@ -25,6 +25,8 @@ import ListarVendas from '../pages/vendas/Listar.js';
 
 import CadastrarUsuarios from '../pages/usuarios/Cadastrar';
 import ListarUsuarios from '../pages/usuarios/Listar';
+import Presentation from '../pages/Presentation';
+import Dashboard from '../pages/dashboard/DashboardOverview';
 
 //import ListarClientes from '../pages/clientes/Listar.js';
 //import CadastrarClientes from '../pages/clientes/Cadastrar';
@@ -76,8 +78,17 @@ export function Application() {
         component={WithAuthorizationRouter(CadastrarClientes)}
       /> */}
       <RouteWithSidebar exact path="/" component={WithAuthorizationRouter(TesteRota)} />
-      <RouteWithSidebar exact path="/home" component={WithAuthorizationRouter(Home)} />
+      <RouteWithSidebar exact path="/cliente/cadastrar" component={WithAuthorizationRouter(CadastrarClientes)} />
+      <RouteWithSidebar exact path="/cliente/listar" component={WithAuthorizationRouter(ListarClientes)} />
+      <RouteWithSidebar exact path="/home" component={WithAuthorizationRouter(Dashboard)} />
+      <RouteWithSidebar exact path="/dashboard" component={WithAuthorizationRouter(Dashboard)} />
       <RouteWithLoader exact path="/teste" component={WithAuthorizationRouter(Teste)} />
+      <RouteWithSidebar exact path="/vendas/cadastrar" component={WithAuthorizationRouter(CadastrarVendas)} />
+      <RouteWithSidebar exact path="/vendas/listar" component={WithAuthorizationRouter(ListarVendas)} />
+
+      <RouteWithSidebar exact path="/usuarios/cadastrar" component={WithAuthorizationRouter(CadastrarUsuarios)} />
+      <RouteWithSidebar exact path="/usuarios/listar" component={WithAuthorizationRouter(ListarUsuarios)} />
+
       {/* <Route
         exact
         path="/home"

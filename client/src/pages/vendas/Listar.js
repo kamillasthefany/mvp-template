@@ -57,7 +57,7 @@ export default () => {
         </Row>
       </div>
 
-      <Tabela />
+      {/* <Tabela /> */}
     </>
   );
 };
