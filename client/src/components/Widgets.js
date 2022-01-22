@@ -32,7 +32,7 @@ export const ProfileCardWidget = () => {
 };
 
 export const ChoosePhotoWidget = (props) => {
-  const { title, photo } = props;
+  const { title, photo, disabled } = props;
 
   return (
     <Card border="light" className="bg-white shadow-sm mb-4">
@@ -48,7 +48,7 @@ export const ChoosePhotoWidget = (props) => {
                 <span className="icon icon-md">
                   <FontAwesomeIcon icon={faPaperclip} className="me-3" />
                 </span>
-                <input type="file" />
+                <input type="file" disabled={disabled} />
                 <div className="d-md-block text-start">
                   <div className="fw-normal text-dark mb-1">Selecione o arquivo</div>
                   <div className="text-gray small">PDF, JPEG ou PNG. Tamanho máximo 800K</div>

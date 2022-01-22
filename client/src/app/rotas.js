@@ -3,8 +3,8 @@ import { Switch, Route, Redirect, BrowserRouter as Router, } from 'react-router-
 //import TablePage from '../pages/TablePage';
 import { Routes } from "../routes";
 
-import Clientes from "./../pages/Clientes";
-import ListarClientes from "./../pages/clientes/listar";
+import Clientes from "../pages/clientes/Cadastrar";
+//import ListarClientes from "./../pages/clientes/listar";
 import Signin from "./../pages/examples/Signin";
 
 // components
@@ -14,6 +14,15 @@ import Navbar from "./../components/Navbar";
 import Preloader from "./../components/Preloader";
 import NotFound from "./../pages/examples/NotFound";
 import Login from "./../pages/examples/Signin";
+
+import ListarVendas from './../pages/vendas/Listar.js';
+import CadastrarVendas from './../pages/vendas/Cadastrar';
+
+import CadastrarUsuarios from './../pages/usuarios/Cadastrar';
+import ListarUsuarios from './../pages/usuarios/Listar';
+
+import ListarClientes from './../pages/clientes/Listar.js';
+import CadastrarClientes from './../pages/clientes/Cadastrar';
 
 
 import { withAuthorizationRouter } from './auth';
@@ -66,14 +75,30 @@ export function Application() {
   return (
     <Router>
       <Switch>
-
-        {auth && auth.token &&
-          <RouteWithSidebar exact path={Routes.Clientes.path} component={Clientes} />
-        }
-        {auth && auth.token &&
+        {!auth &&
           <RouteWithLoader exact path={Routes.Login.path} component={Login} />
         }
-        <RouteWithLoader exact path={Routes.Login.path} component={Signin} />
+        {auth && auth.token &&
+          <RouteWithSidebar exact path="/clientes/listar" component={ListarClientes} />
+        }
+        {auth && auth.token &&
+          <RouteWithSidebar exact path="/" component={CadastrarClientes} />
+        }
+        {auth && auth.token &&
+          <RouteWithSidebar exact path="/vendas/listar" component={ListarVendas} />
+        }
+        {auth && auth.token &&
+          <RouteWithSidebar exact path="/vendas/cadastrar" component={CadastrarVendas} />
+        }
+        {auth && auth.token &&
+          <RouteWithSidebar exact path="/usuarios/cadastrar" component={CadastrarUsuarios} />
+        }
+        {auth && auth.token &&
+          <RouteWithSidebar exact path="/usuarios/listar" component={ListarUsuarios} />
+        }
+
+
+        <RouteWithLoader exact path={Routes.Login.path} component={Login} />
         <RouteWithLoader exact path={Routes.NotFound.path} component={NotFound} />
 
         {/* <RouteWithSidebar exact path={Routes.ListarClientes.path} component={ListarClientes} /> */}

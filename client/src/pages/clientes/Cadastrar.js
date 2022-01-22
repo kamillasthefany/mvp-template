@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Button, Card, Form, InputGroup } from '@themesberg/react-bootstrap';
-import { ChoosePhotoWidget } from "../components/Widgets";
+import { ChoosePhotoWidget } from "./../../components/Widgets";
+import { CardList } from "../../components/CardList";
 import moment from "moment-timezone";
 import Datetime from "react-datetime";
 
 export default () => {
 
   const [birthday, setBirthday] = useState("");
+  const [clienteId, setClienteId] = useState(null);
 
   return (
     <>
@@ -123,7 +125,13 @@ export default () => {
             <Col xs={12}>
               <ChoosePhotoWidget
                 title="Enviar documentos"
+                disabled={false}
               />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <CardList />
             </Col>
           </Row>
         </Col>
