@@ -1,33 +1,50 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Switch, Route, Redirect, BrowserRouter as Router, } from 'react-router-dom';
 //import TablePage from '../pages/TablePage';
 import { Routes } from "../routes";
 
 import Clientes from "../pages/clientes/Cadastrar";
 //import ListarClientes from "./../pages/clientes/listar";
-import Signin from "./../pages/examples/Signin";
+import Signin from "../pages/examples/Signin";
 
 // components
-import Sidebar from "./../components/Sidebar";
+import Sidebar from "../components/Sidebar";
 //import Navbar from "./../pages/components/Navbar";
-import Navbar from "./../components/Navbar";
-import Preloader from "./../components/Preloader";
-import NotFound from "./../pages/examples/NotFound";
-import Login from "./../pages/examples/Signin";
+import Navbar from "../components/Navbar";
+import Preloader from "../components/Preloader";
+import NotFound from "../pages/examples/NotFound";
+import Login from "../pages/examples/Signin";
 
-import ListarVendas from './../pages/vendas/Listar.js';
-import CadastrarVendas from './../pages/vendas/Cadastrar';
+import ListarVendas from '../pages/vendas/Listar.js';
+import CadastrarVendas from '../pages/vendas/Cadastrar';
 
-import CadastrarUsuarios from './../pages/usuarios/Cadastrar';
-import ListarUsuarios from './../pages/usuarios/Listar';
+import CadastrarUsuarios from '../pages/usuarios/Cadastrar';
+import ListarUsuarios from '../pages/usuarios/Listar';
 
-import ListarClientes from './../pages/clientes/Listar.js';
-import CadastrarClientes from './../pages/clientes/Cadastrar';
+import ListarClientes from '../pages/clientes/Listar.js';
+import CadastrarClientes from '../pages/clientes/Cadastrar';
 
 
-import { withAuthorizationRouter } from './auth';
+import { WithAuthorizationRouter } from './auth';
 
-import { UseAuthProvider } from './../contexts/authContext';
+import { UseAuthProvider, AuthContext } from '../contexts/authContext';
+
+// export function WithAuthorizationRouter(Component) {
+//   const [user] = useContext(AuthContext);
+//   const AuthenticatedComponent = () => {
+//     const token = user.token;
+//     const authenticating = (isAuth) => {
+//       if (isAuth === null || isAuth === false) {
+//         return <Redirect to="/" />;
+//       }
+
+//       return <Component />;
+//     };
+//     return <>{authenticating(token)}</>;
+
+//   }
+//   return AuthenticatedComponent;
+// }
 
 const RouteWithLoader = ({ component: Component, ...rest }) => {
   const [loaded, setLoaded] = useState(false);

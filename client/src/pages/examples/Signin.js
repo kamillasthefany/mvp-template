@@ -27,7 +27,7 @@ export default () => {
   }
 
   const redirectUserLogged = () => {
-    history.push('/dashboard');
+    history.push('/home');
   };
 
   async function efetuarLogin(evt) {

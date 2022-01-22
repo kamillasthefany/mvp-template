@@ -110,7 +110,7 @@ export default () => {
                   </Col>
                 </Row>
                 <div className="mt-3">
-                  <Button variant="primary" type="submit">Salvar</Button>
+                  <Button variant="primary" type="submit" onClick={console.log('click')}>Salvar</Button>
                 </div>
               </Form>
             </Card.Body>

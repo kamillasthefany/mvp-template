@@ -6,7 +6,8 @@ import "./scss/volt.scss";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "react-datetime/css/react-datetime.css";
 
-import { Application } from './app/rotas';
+///import { Application } from './app/rotas-original';
+import { Routes } from './../src/app/index';
 import { AuthProvider } from './../src/contexts/authContext';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
@@ -16,7 +17,7 @@ ReactDOM.render(
   <>
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
-        <Application />
+        <Routes />
       </QueryClientProvider>
     </AuthProvider>
   </>,
