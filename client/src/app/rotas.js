@@ -85,6 +85,9 @@ export function Application() {
           <RouteWithSidebar exact path="/" component={CadastrarClientes} />
         }
         {auth && auth.token &&
+          <RouteWithSidebar exact path="" component={CadastrarClientes} />
+        }
+        {auth && auth.token &&
           <RouteWithSidebar exact path="/vendas/listar" component={ListarVendas} />
         }
         {auth && auth.token &&

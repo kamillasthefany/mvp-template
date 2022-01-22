@@ -4,8 +4,11 @@ import { faCheck, faCog, faHome, faSearch } from '@fortawesome/free-solid-svg-ic
 import { Col, Row, Form, Button, ButtonGroup, Breadcrumb, InputGroup, Dropdown } from '@themesberg/react-bootstrap';
 
 import { Tabela } from '../../components/Table';
+import { useObterUsuarios } from './../../queries/user';
 
 export default () => {
+
+  const { isLoading, data, error } = useObterUsuarios();
 
   return (
     <>
@@ -56,7 +59,7 @@ export default () => {
         </Row>
       </div>
 
-      <Tabela />
+      <Tabela tableContent={data} tableTitles={"id, nome, email, aprovado, createdAt"} />
     </>
   );
 };

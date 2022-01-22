@@ -8,46 +8,50 @@ import { Link } from 'react-router-dom';
 import { Routes } from "../routes";
 import transactions from "../data/transactions";
 
-export const Tabela = () => {
+export const Tabela = (props) => {
+
   const totalTransactions = transactions.length;
 
-  // const [conteudo, setConteudo] = useState([]);
-  // const [chave, setChave] = useState([]);
-  // const { tableContent, tableTitles } = props;
+  const { tableContent, tableTitles } = props;
+  const [conteudo, setConteudo] = useState([]);
+  const [chave, setChave] = useState([]);
+  console.log('tableContent', tableContent);
 
-  // useEffect(async () => {
-  //   await tratarConteudo();
-  // }, [tableContent]);
+  useEffect(async () => {
+    await tratarConteudo();
+  }, [tableContent]);
 
-  // const tratarConteudo = async () => {
-  //   console.log('table content componet', tableContent);
-  //   console.log('table title componet', tableTitles);
-  //   if (tableContent) {
-  //     console.log('titulos component', tableTitles);
-  //     let listaFinal = [];
+  const tratarConteudo = async () => {
+    console.log('table content componet', tableContent);
+    console.log('table title componet', tableTitles);
+    if (tableContent) {
+      console.log('titulos component', tableTitles);
+      let listaFinal = [];
 
-  //     tableContent?.map((item) => {
-  //       let lista = []
-  //       tableTitles?.map((titulo) => {
-  //         console.log('prop', titulo);
-  //         console.log('item[titulo]', item[titulo]);
-  //         lista.push(item[titulo]);
-  //       });
+      tableContent?.map((item) => {
+        let lista = []
+        tableTitles?.map((titulo) => {
+          console.log('prop', titulo);
+          console.log('item[titulo]', item[titulo]);
+          lista.push(item[titulo]);
+        });
 
-  //       listaFinal.push(lista);
-  //     }
+        listaFinal.push(lista);
+      }
 
-  //     );
-  //     console.log('componente lista final', listaFinal);
-  //     setConteudo(listaFinal);
-  //   }
-  // };
+      );
+      console.log('componente lista final', listaFinal);
+      setConteudo(listaFinal);
+    }
+  };
 
   const TableRow = (props) => {
     const { invoiceNumber, subscription, price, issueDate, dueDate, status } = props;
     const statusVariant = status === "Paid" ? "success"
       : status === "Due" ? "warning"
         : status === "Canceled" ? "danger" : "primary";
+
+    //const statusAprovacao = aprovado ? "success" : "warning";
 
     return (
       <tr>
@@ -111,13 +115,20 @@ export const Tabela = () => {
         <Table hover className="user-table align-items-center">
           <thead>
             <tr>
-              <th className="border-bottom">#</th>
+              {tableTitles?.map((prop, key) => {
+                return (
+                  <th className="border-bottom" key={key}>
+                    {prop}
+                  </th>
+                );
+              })}
+              {/* <th className="border-bottom">#</th>
               <th className="border-bottom">Bill For</th>
               <th className="border-bottom">Issue Date</th>
               <th className="border-bottom">Due Date</th>
               <th className="border-bottom">Total</th>
               <th className="border-bottom">Status</th>
-              <th className="border-bottom">Action</th>
+              <th className="border-bottom">Action</th> */}
             </tr>
           </thead>
           <tbody>
