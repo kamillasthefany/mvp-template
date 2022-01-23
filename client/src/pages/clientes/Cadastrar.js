@@ -7,6 +7,12 @@ import { CardList } from "../../components/CardList";
 import moment from "moment-timezone";
 import Datetime from "react-datetime";
 
+const lista = [
+  { titulo: 'Identidade', subtitulo: 'documento_de_identidade.jpeg', id: 1, "habilitarEdicao": true },
+  { titulo: 'CPF', subtitulo: 'cpf.jpeg', id: 2, "habilitarEdicao": true },
+  { titulo: 'Comprovante de Endereco', subtitulo: 'comp_endereco.jpeg', id: 3, "habilitarEdicao": true },
+];
+
 export default () => {
 
   const [birthday, setBirthday] = useState("");
@@ -131,7 +137,7 @@ export default () => {
           </Row>
           <Row>
             <Col xs={12}>
-              <CardList />
+              <CardList lista={lista} />
             </Col>
           </Row>
         </Col>

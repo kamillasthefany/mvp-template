@@ -3,14 +3,8 @@ import React from "react";
 import { Card } from '@themesberg/react-bootstrap';
 import { MenuAcoes } from './../components/MenuAcoes';
 
-const lista = [
-  { titulo: 'Identidade', subtitulo: 'documento_de_identidade.jpeg', id: 1 },
-  { titulo: 'CPF', subtitulo: 'cpf.jpeg', id: 2 },
-  { titulo: 'Comprovante de Endereco', subtitulo: 'comp_endereco.jpeg', id: 3 },
-];
-
 const CardItem = (props) => {
-  const { titulo, subtitulo, id, ajusteCSS } = props;
+  const { titulo, subtitulo, id, habilitarEdicao, ajusteCSS } = props;
   return (
     <div className={`d-flex align-items-center justify-content-between ${ajusteCSS}`}>
       <div>
@@ -20,24 +14,26 @@ const CardItem = (props) => {
         </div>
       </div>
       <div>
-        <MenuAcoes />
+        {
+          habilitarEdicao && <MenuAcoes />
+        }
       </div>
     </div>
   );
 }
 
 export const CardList = (props) => {
-  //const { lista } = props;
+  const { lista } = props;
   return (
     <Card border="light" className="shadow-sm">
       <Card.Body>
-        {lista.map((item, index) => <CardItem {...item} ajusteCSS={ajusteCSS(index)} key={`id-${item.id}`} />)}
+        {lista.map((item, index) => <CardItem {...item} ajusteCSS={ajusteCSS(index, lista)} key={`id-${item.id}`} />)}
       </Card.Body>
     </Card>
   );
 };
 
-const ajusteCSS = (indexLista) => {
+const ajusteCSS = (indexLista, lista) => {
   if (indexLista === 0)
     return 'border-bottom border-light pb-3';
   if (lista.length - 1 === indexLista)

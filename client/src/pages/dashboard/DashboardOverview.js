@@ -7,6 +7,13 @@ import { Col, Row, Button, Dropdown, ButtonGroup } from '@themesberg/react-boots
 import { CounterWidget, CircleChartWidget, BarChartWidget, TeamMembersWidget, ProgressTrackWidget, RankingWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../../components/Widgets";
 import { PageVisitsTable } from "../../components/Tables";
 import { trafficShares, totalOrders } from "../../data/charts";
+import { CardList } from "../../components/CardList";
+
+const lista = [
+  { titulo: 'Daiane dos Santos', subtitulo: '10 vendas no último mês', id: 3, "habilitarEdicao": false },
+  { titulo: 'João da Silva', subtitulo: '5 vendas no último mês', id: 1 },
+  { titulo: 'John Smith', subtitulo: '3 vendas no último mês', id: 2 },
+];
 
 export default () => {
   return (
@@ -31,7 +38,7 @@ export default () => {
           <CounterWidget
             category="Clientes"
             title="345k"
-            period="Feb 1 - Apr 1"
+            period="01/01 à 20/01"
             percentage={18.2}
             icon={faChartLine}
             iconColor="shape-secondary"
@@ -40,32 +47,18 @@ export default () => {
         <Col xs={12} sm={6} xl={4} className="mb-4">
           <CounterWidget
             category="Vendas"
-            title="$43,594"
-            period="Feb 1 - Apr 1"
+            title="R$43,594"
+            period="01/01 à 20/01"
             percentage={28.4}
             icon={faCashRegister}
             iconColor="shape-tertiary"
           />
         </Col>
         <Col xs={12} sm={6} xl={4} className="mb-4">
-          <RankingWidget />
+          {/* <RankingWidget /> */}
+          <CardList lista={lista} />
         </Col>
       </Row>
-      {/* <Row className="justify-content-md-center">
-        <Col xs={12} sm={6} xl={4} className="mb-4">
-          <BarChartWidget
-            title="Total orders"
-            value={452}
-            percentage={18.2}
-            data={totalOrders} />
-        </Col>
-        <Col xs={12} sm={6} xl={4} className="mb-4">
-          <RankingWidget />
-        </Col>
-        <Col xs={12} sm={6} xl={4} className="mb-4">
-          <TeamMembersWidget />
-        </Col>
-      </Row> */}
     </>
   );
 };

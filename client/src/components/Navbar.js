@@ -2,15 +2,14 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faCog, faEnvelopeOpen, faSearch, faSignOutAlt, faUserShield } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faCog, faEnvelopeOpen, faSignOutAlt, faUserShield, faCheck, faHome, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
-import { Row, Col, Nav, Form, Image, Navbar, Dropdown, Container, ListGroup, InputGroup } from '@themesberg/react-bootstrap';
+import { Row, Col, Nav, Form, Image, Navbar, Dropdown, Container, ListGroup, Breadcrumb, InputGroup } from '@themesberg/react-bootstrap';
 import { UseAuthProvider } from './../contexts/authContext';
 import { logout } from './../services/auth';
 
 import NOTIFICATIONS_DATA from "../data/notifications";
 import Profile3 from "../assets/img/team/profile-picture-1.jpg";
-
 
 export default (props) => {
   const [{ auth }] = UseAuthProvider();
@@ -76,6 +75,12 @@ export default (props) => {
                 </InputGroup>
               </Form.Group>
             </Form> */}
+
+            {/* <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
+              <Breadcrumb.Item><FontAwesomeIcon icon={faHome} /></Breadcrumb.Item>
+              <Breadcrumb.Item>Clientes</Breadcrumb.Item>
+              <Breadcrumb.Item active>Listar</Breadcrumb.Item>
+            </Breadcrumb> */}
           </div>
           <Nav className="align-items-center">
             <Dropdown as={Nav.Item} onToggle={markNotificationsAsRead} >
