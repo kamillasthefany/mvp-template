@@ -8,7 +8,7 @@ import { useObterUsuarios } from './../../queries/user';
 
 export default () => {
 
-  const { isLoading, data, error } = useObterUsuarios();
+  const usuarios = useObterUsuarios();
 
   return (
     <>
@@ -59,7 +59,7 @@ export default () => {
         </Row>
       </div>
 
-      {/* <Tabela tableContent={data} tableTitles={"id, nome, email, aprovado, createdAt"} /> */}
+      <Tabela dados={usuarios?.data} />
     </>
   );
 };
