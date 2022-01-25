@@ -7,6 +7,11 @@ export default () => {
 
   const [birthday, setBirthday] = useState("");
 
+  const lista = [
+    { titulo: 'Contrato de Venda', subtitulo: 'contrato_venda_joao.jpeg', id: 1, "habilitarEdicao": true },
+    { titulo: 'Scam Passagens Aéreas', subtitulo: 'passagens_joao.pdf', id: 2, "habilitarEdicao": true },
+  ];
+
   return (
     <>
       <br />
@@ -50,7 +55,7 @@ export default () => {
           </Row>
           <Row>
             <Col xs={12}>
-              <CardList />
+              <CardList lista={lista} />
             </Col>
           </Row>
         </Col>

@@ -16,11 +16,11 @@ export default () => {
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
         <div className="d-block mb-4 mb-md-0">
-          <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
+          {/* <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
             <Breadcrumb.Item><FontAwesomeIcon icon={faHome} /></Breadcrumb.Item>
             <Breadcrumb.Item>Clientes</Breadcrumb.Item>
             <Breadcrumb.Item active>Listar</Breadcrumb.Item>
-          </Breadcrumb>
+          </Breadcrumb> */}
           <h4>Clientes</h4>
           {/* <p className="mb-0">Your web analytics dashboard template.</p> */}
         </div>

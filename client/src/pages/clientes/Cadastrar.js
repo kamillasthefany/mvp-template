@@ -6,6 +6,7 @@ import { ChoosePhotoWidget } from "./../../components/Widgets";
 import { CardList } from "../../components/CardList";
 import moment from "moment-timezone";
 import Datetime from "react-datetime";
+import Modal from "../components/Modal";
 
 const lista = [
   { titulo: 'Identidade', subtitulo: 'documento_de_identidade.jpeg', id: 1, "habilitarEdicao": true },
@@ -17,6 +18,8 @@ export default () => {
 
   const [birthday, setBirthday] = useState("");
   const [clienteId, setClienteId] = useState(null);
+  const [showDefault, setShowDefault] = useState(false);
+  const handleClose = () => setShowDefault(false);
 
   return (
     <>
