@@ -2,6 +2,8 @@ const { Sequelize } = require("sequelize");
 
 const Usuario = require('../app/models/Usuario');
 const Token = require('../app/models/Token');
+const Cliente = require('../app/models/Cliente');
+const Venda = require('../app/models/Venda');
 
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   define: {
@@ -17,6 +19,8 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
 
 Usuario.init(sequelize);
 Token.init(sequelize);
+Cliente.init(sequelize);
+Venda.init(sequelize);
 
 sequelize
   .authenticate()
