@@ -1,6 +1,16 @@
 const Cliente = require('../models/Cliente');
 
 const Clientes = {
+  async upload(request, response) {
+    try {
+      console.log('request', request);
+      return response.status(200).json('sucesso upload');
+    }
+    catch (error) {
+      return response.status(500).json(error);
+    }
+
+  },
   async all(request, response) {
     try {
       const clientes = await Cliente.findAll();
